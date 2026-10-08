@@ -1,0 +1,6 @@
+# ENSAT authorized scope - copy to scope.txt and list ONLY systems you own or are authorized to assess.
+# One IP, CIDR or hostname pattern per line. Localhost is always allowed.
+# Targets outside this list require explicit confirmation (--authorized / dashboard checkbox) and are flagged in reports.
+192.168.56.0/24
+# 10.10.0.5
+# *.lab.local

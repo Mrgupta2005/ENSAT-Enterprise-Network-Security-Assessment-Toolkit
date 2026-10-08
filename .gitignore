@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.env
+*.db
+*.db-wal
+*.db-shm
+data/*
+!data/.gitkeep
+reports/*
+!reports/.gitkeep
+logs/
+scope.txt
+.DS_Store

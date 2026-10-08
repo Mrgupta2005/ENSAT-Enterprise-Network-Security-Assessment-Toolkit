@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ensat"
+dynamic = ["version"]
+description = "Enterprise Network Security Assessment Toolkit - defensive network assessment, vulnerability correlation and reporting"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31,<3", "pandas>=2.0", "reportlab>=4.0", "rich>=13.7", "streamlit>=1.50,<2",
+  "altair>=5.0", "cryptography>=42", "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+ensat = "ensat.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "ensat.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["ensat*"]
+
+[tool.ruff]
+line-length = 160
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]

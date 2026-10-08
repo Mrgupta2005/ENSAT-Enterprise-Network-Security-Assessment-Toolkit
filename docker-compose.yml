@@ -1,0 +1,13 @@
+services:
+  ensat:
+    build: .
+    # host networking lets Nmap see your LAN (Linux only). On Docker Desktop, remove it and use "ports".
+    network_mode: host
+    cap_add: [NET_RAW, NET_ADMIN]   # SYN scan, OS detection, MAC discovery
+    env_file: [.env]
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./scope.txt:/app/scope.txt
+    environment:
+      ENSAT_SCOPE_FILE: /app/scope.txt
