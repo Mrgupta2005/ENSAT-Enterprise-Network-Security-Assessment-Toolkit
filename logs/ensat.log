@@ -1,0 +1,5 @@
+2026-10-08 21:55:54,315 INFO    ensat.pipeline: Scan #1 started: 127.0.0.1 (profile=standard)
+2026-10-08 21:55:54,460 INFO    ensat.scanner: Running: C:\Program Files (x86)\Nmap\nmap.EXE -oX - --stats-every 3s --reason -T4 -Pn -sT --top-ports 1000 -sV --script banner,http-title,http-server-header,ssl-cert,ftp-anon,smb2-security-mode,smb-protocols,dns-recursion,redis-info 127.0.0.1
+2026-10-08 21:56:22,029 INFO    ensat.tls: TLS handshake with 127.0.0.1:3306 failed: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1000)
+2026-10-08 21:56:22,030 INFO    ensat.tls: TLS handshake with 127.0.0.1:902 failed: [WinError 10053] An established connection was aborted by the software in your host machine
+2026-10-08 21:56:33,825 INFO    ensat.pipeline: Scan #1 completed in 38.5s: 37 findings

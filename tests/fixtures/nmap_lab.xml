@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nmaprun scanner="nmap" args="nmap -oX - -sS -sV --script banner,ftp-anon 192.168.56.0/30" start="1760000000" startstr="Thu Oct  9 10:00:00 2025" version="7.94" xmloutputversion="1.05">
+<taskprogress task="SYN Stealth Scan" time="1760000003" percent="42.10" remaining="4" etc="1760000007"/>
+<host starttime="1760000000" endtime="1760000030">
+  <status state="up" reason="arp-response"/>
+  <address addr="192.168.56.10" addrtype="ipv4"/>
+  <address addr="08:00:27:AA:BB:CC" addrtype="mac" vendor="Oracle VirtualBox virtual NIC"/>
+  <hostnames>
+    <hostname name="files.lab.local" type="user"/>
+    <hostname name="fileserver.lab.local" type="PTR"/>
+  </hostnames>
+  <ports>
+    <extraports state="closed" count="990"/>
+    <port protocol="tcp" portid="21">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="ftp" product="vsftpd" version="2.3.4" ostype="Unix" method="probed" conf="10"><cpe>cpe:/a:vsftpd:vsftpd:2.3.4</cpe></service>
+      <script id="ftp-anon" output="Anonymous FTP login allowed (FTP code 230)&#xa;drwxr-xr-x    2 0        0            4096 Oct 01 10:00 pub"/>
+      <script id="banner" output="220 (vsFTPd 2.3.4)"/>
+    </port>
+    <port protocol="tcp" portid="22">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="ssh" product="OpenSSH" version="7.4p1 Debian 10+deb9u7" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:7.4p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service>
+    </port>
+    <port protocol="tcp" portid="445">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="microsoft-ds" method="table" conf="3"/>
+    </port>
+    <port protocol="tcp" portid="3306">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="mysql" product="MySQL" version="8.0.39" method="probed" conf="10"><cpe>cpe:/a:mysql:mysql:8.0.39</cpe></service>
+    </port>
+    <port protocol="tcp" portid="3307">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="mysql" product="MySQL" method="probed" conf="10"/>
+    </port>
+    <port protocol="tcp" portid="9999">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="unknown" method="table" conf="3"/>
+    </port>
+    <port protocol="tcp" portid="23">
+      <state state="filtered" reason="no-response" reason_ttl="0"/>
+      <service name="telnet" method="table" conf="3"/>
+    </port>
+  </ports>
+  <os>
+    <osmatch name="Linux 4.15 - 5.8" accuracy="96" line="1"><osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="96"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass></osmatch>
+    <osmatch name="Linux 3.2 - 4.9" accuracy="90" line="2"/>
+  </os>
+  <hostscript>
+    <script id="smb2-security-mode" output="&#xa;  3:1:1: &#xa;    Message signing enabled but not required"/>
+    <script id="smb-protocols" output="&#xa;  dialects: &#xa;    NT LM 0.12 (SMBv1) [dangerous, but default]&#xa;    2:0:2&#xa;    2:1:0"/>
+  </hostscript>
+</host>
+<host starttime="1760000000" endtime="1760000030">
+  <status state="up" reason="arp-response"/>
+  <address addr="192.168.56.11" addrtype="ipv4"/>
+  <hostnames/>
+  <ports>
+    <port protocol="tcp" portid="6379">
+      <state state="open" reason="syn-ack" reason_ttl="64"/>
+      <service name="redis" product="Redis key-value store" version="6.0.16" method="probed" conf="10"><cpe>cpe:/a:redis:redis:6.0.16</cpe></service>
+      <script id="redis-info" output="&#xa;  Version: 6.0.16&#xa;  Operating System: Linux 5.15.0 x86_64"/>
+    </port>
+  </ports>
+</host>
+<host><status state="down" reason="no-response"/><address addr="192.168.56.12" addrtype="ipv4"/></host>
+<runstats><finished time="1760000030" timestr="Thu Oct  9 10:00:30 2025" elapsed="30.12" summary="Nmap done" exit="success"/><hosts up="2" down="1" total="3"/></runstats>
+</nmaprun>
